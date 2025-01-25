@@ -1,0 +1,36 @@
+﻿@model Introduction_Task.Models.IndexViewModel
+
+<html>
+<head>
+
+</head>
+<body>
+    <div style="display:flex">
+        @foreach (var item in Model.Drink)
+        {
+            <div style="padding: 5px; margin:5px; border: 3px solid aqua;border-radius: 5px">
+                <p>Id: @item.Id</p>
+                <p>Name: @item.Name</p>
+                <p>Price: @item.Price</p>
+            </div>
+        }
+        @foreach (var item in Model.FastFood)
+        {
+            <div style="padding: 5px; margin:5px; border: 3px solid red;border-radius: 5px">
+                <p>Id: @item.Id</p>
+                <p>Name: @item.Name</p>
+                <p>Price: @item.Price</p>
+            </div>
+        }
+        @foreach (var item in Model.HotMeal)
+        {
+            <div style="padding: 5px; margin:5px; border: 3px solid green;border-radius: 5px">
+                <p>Id: @item.Id</p>
+                <p>Name: @item.Name</p>
+                <p>Price: @item.Price</p>
+            </div>
+        }
+    </div>
+
+</body>
+</html>

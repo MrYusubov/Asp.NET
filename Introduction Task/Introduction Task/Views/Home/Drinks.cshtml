@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Introduction_Task.Entities.Drink>
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        @foreach(var item in Model){
+            <div style="padding: 5px; border: 3px solid aqua;border-radius: 5px">
+                <p>Id: @item.Id</p>
+                <p>Name: @item.Name</p>
+                <p>Price: @item.Price</p>
+            </div>
+        }
+    </body>
+</html>
