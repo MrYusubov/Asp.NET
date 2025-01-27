@@ -1,0 +1,28 @@
+﻿@model Product
+
+<section>
+    <form asp-controller="Product" asp-action="Add">
+        <section>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span style="color:red" asp-validation-for="Name"></span>
+        </section>
+        <section>
+            <label asp-for="Description"></label>
+            <input asp-for="Description" />
+            <span style="color:red" asp-validation-for="Description"></span>
+        </section>
+        <section>
+            <label asp-for="Price"></label>
+            <input asp-for="Price" />
+        </section>
+        <section>
+            <label asp-for="Discount"></label>
+            <input asp-for="Discount" />
+        </section>
+        <section>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </section>
+    </form>
+
+</section>
