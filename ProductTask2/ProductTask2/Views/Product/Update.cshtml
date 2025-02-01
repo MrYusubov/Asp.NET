@@ -1,0 +1,31 @@
+﻿@model Product
+
+<section class="container mt-4">
+    <form asp-controller="Product" asp-action="Add" method="post" enctype="multipart/form-data">
+        <section class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </section>
+        <section class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </section>
+        <section class="mb-3">
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" class="form-control" />
+        </section>
+        <section class="mb-3">
+            <label asp-for="Discount" class="form-label"></label>
+            <input asp-for="Discount" class="form-control" />
+        </section>
+        <section class="mb-3">
+            <label for="ImageFile" class="form-label">Upload Image</label>
+            <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+        </section>
+        <section class="mb-3">
+            <button class="btn btn-success" type="submit">Add</button>
+        </section>
+    </form>
+</section>

@@ -1,0 +1,19 @@
+﻿@model ProductListViewmodel
+
+<section class="container bg-light">
+    @foreach (var item in Model.Products)
+    {
+        <section style="width:40%;margin:5px">
+            <h2>Name : @item.Name</h2>
+            <h2>Description : @item.Description</h2>
+            <h2>Price : @item.Price $</h2>
+            <h2>Discount : @item.Discount %</h2>
+            <h2>ImageLink : @item.ImageLink %</h2>
+            <a class="btn btn-danger" asp-controller="product" asp-action="delete"
+               asp-route-id="@item.Id">Delete Product</a>
+            <a class="btn btn-success" asp-controller="product" asp-action="update"
+               asp-route-id="@item.Id">Update Product</a>
+        </section>
+    }
+    <a href="/product/add" class="btn btn-outline-success">Add New Product</a>
+</section>
