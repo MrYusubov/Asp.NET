@@ -71,11 +71,25 @@ namespace ProductTask2.Controllers
             return View(product);
         }
         [HttpPost]
-        public IActionResult Update(Product product)
+        public IActionResult Update(Product product, IFormFile ImageFile)
         {
-                _context.Products.Remove(_context.Products.FirstOrDefault(p => p.Id == product.Id));
-                _context.Products.Add(product);
-                _context.SaveChanges();
+            string wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+            if (!Directory.Exists(wwwRootPath))
+            {
+                Directory.CreateDirectory(wwwRootPath);
+            }
+
+            string ImageName = Guid.NewGuid().ToString() + Path.GetExtension(ImageFile.FileName);
+            string filePath = Path.Combine(wwwRootPath, ImageName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                ImageFile.CopyTo(fileStream);
+            }
+
+            product.ImageLink = "/images/" + ImageName;
+            _context.Products.Update(product);
+            _context.SaveChanges();
                 return RedirectToAction("Index");
         }
     }
