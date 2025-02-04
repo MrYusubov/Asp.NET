@@ -1,0 +1,16 @@
+﻿@page "{id:int}"
+@model RazorTestAfternoon.Pages.Product.DeleteModel
+@{
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Product.Id" />
+    <div>
+        <label class="form-label">Name:</label> @Model.Product.Name
+    </div>
+    <div>
+        <label class="form-label">Price:</label> @Model.Product.Price
+    </div>
+    <button asp-action="delete" class="btn btn-danger" type="submit">Delete</button> |
+    <a class="btn btn-success" asp-page="./Index">Cancel</a>
+</form>

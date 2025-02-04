@@ -1,0 +1,56 @@
+﻿@page
+@model RazorTestAfternoon.Pages.Product.IndexModel
+@{
+}
+
+@* <h1>Message : @Model.Message</h1>
+ *@
+
+@if (Model.Info != "")
+{
+    <div class="alert alert-success" role="alert">
+        @Model.Info
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td scope="row">@item.Id</td>
+                <td scope="row">@item.Name</td>
+                <td scope="row">@item.Price</td>
+                <td scope="row">
+                    <a asp-page="./Edit" class="btn btn-outline-warning" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td scope="row">
+                    <a asp-page="./Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form method="post">
+    <div class="m-3">
+        <label class="form-label">Product Name</label>
+        <input asp-for="Product.Name" class="form-control" />
+    </div>
+    <div class="m-3">
+        <label class="form-label">Product Price</label>
+        <input asp-for="Product.Price" class="form-control" />
+    </div>
+    <div class="m-3">
+        <button type="submit" class="btn btn-success">Add new Product</button>
+    </div>
+</form>
